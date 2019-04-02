@@ -157,11 +157,11 @@ class Actions(QDialog):
     def funcs_progress_return(self, value):
         self.graphic = ProgressBarWorker((100 / self.len_list_func) * (value + 1), (100 / self.len_list_func) * value)
         self.graphic.start()
-        self.graphic.signals.progress.connect(self.progressbar_update)
+        self.graphic.signals.progress.connect(self.progress.setValue)
 
     # Called above, change the value of the progressBar
-    def progressbar_update(self, value):
-        self.progress.setValue(value)
+    #def progressbar_update(self, value):
+    #    self.progress.setValue(value)
 
     # Called when funcs.finish signal is emitted
     def closing(self):
